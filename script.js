@@ -20,6 +20,7 @@ const saveOnClick = function(){
     const textValue = textInput.value
     console.log(textValue)
     localStorage.setItem(KEY, textValue)
+    textInput.value = ''
 }
 
 const removeOnClick = function(){
