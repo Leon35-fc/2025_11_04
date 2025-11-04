@@ -26,6 +26,7 @@ const saveOnClick = function(){
 const removeOnClick = function(){
     const textValue = textInput.value
     localStorage.removeItem(KEY)
+    textInput.value = ''
 }
 
 
@@ -46,7 +47,7 @@ if (TIME){
 const timer = function (){
     count += 1
     sessionStorage.setItem(TIME, count)
-    document.getElementById('timer').innerHTML = Math.floor(count/60) + 'm ' + count%60 + 's'
+    document.getElementById('timer').innerHTML = `Tempo trascorso: ${Math.floor(count/60)}m ${count%60}s`
 }
 
 setInterval(timer, 1000)
