@@ -2,7 +2,7 @@
 const textInput = document.getElementById('text-area')
 console.log(localStorage.getItem('user'))
 
-// Creo la variabile user per salvare il mio utente
+//Creo la variabile KEY che sostituisce la chiave user per salvare il mio utente nel localStorage
 const KEY = 'user'
 
 //Carica il testo salvato, se presente
@@ -14,13 +14,17 @@ if (KEY){
 const saveButton = document.getElementById('save')
 
 const saveOnClick = function(){
+    if (textInput.value === ''){
+        alert('Campo vuoto! Inserisci il tuo nome!')
+    }
     const textValue = textInput.value
+    console.log(textValue)
     localStorage.setItem(KEY, textValue)
 }
 
 const removeOnClick = function(){
     const textValue = textInput.value
-    localStorage.setItem(KEY, textValue)
+    localStorage.removeItem(KEY)
 }
 
 
@@ -41,7 +45,7 @@ if (TIME){
 const timer = function (){
     count += 1
     sessionStorage.setItem(TIME, count)
-    document.getElementById('timer').innerHTML = count
+    document.getElementById('timer').innerHTML = Math.floor(count/60) + 'm ' + count%60 + 's'
 }
 
 setInterval(timer, 1000)
